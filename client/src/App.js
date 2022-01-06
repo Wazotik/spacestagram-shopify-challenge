@@ -32,9 +32,13 @@ const App = () => {
 
 	return (
 		<div className={styles.main}>
+
+			{/* <button className={styles.toTopButton}>GO UP</button> */}
+			<a href="#top" className={styles.toTopButton}>GO UP</a>
+
 			<header>
 				<nav>
-					<div>Spacestagram</div>
+					<div id="top">Spacestagram</div>
 				</nav>
 			</header>
 			

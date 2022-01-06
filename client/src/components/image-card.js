@@ -10,6 +10,7 @@ const ImageCard = ({ imgUrl, title, description, date }) => {
 		<div className={styles.card} onClick={() => {
 			setLiked(!liked);
 		}}>
+
 			<div className={styles.titleContainer}>
 				<h4>{title}</h4>
 			</div>
@@ -27,7 +28,7 @@ const ImageCard = ({ imgUrl, title, description, date }) => {
 			<div className={styles.likeContainer} style={{
 				opacity: liked ? "1" : "0",
 				height: liked ? "50px" : "0px",
-				transition: liked ? "opacity 1s ease-in-out, height 0.5s ease-in-out" : "opacity 0.4s ease-in-out, height 0.5s ease-in-out",
+				transition: liked ? "opacity 1s ease-in-out, height 0.5s ease-in-out" : "opacity 0.5s ease-in-out, height 0.5s ease-in-out",
 			}}>Liked</div>
 
 			{/* <div className={styles.buttonContainer}>

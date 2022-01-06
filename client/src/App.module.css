@@ -3,12 +3,19 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	scroll-behavior: smooth;
 }
 
 body {
 	min-height: 100vh;
 	font-family: 'Be Vietnam Pro', sans-serif;
 	text-rendering: optimizeLegibility;
+}
+
+.toTopButton {
+	position: fixed;
+	right: 0;
+	bottom: 0;
 }
 
 
