@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap');
+
+.card {
+	width: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 1.5rem;
+	gap: 2rem;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	margin-bottom: 5rem;
+	border-radius: 15px;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+	transform: scale(1.01);
+}
+
+
+.card > img {
+	max-width: 600px;
+	max-height: 600px;
+}
+
+.titleContainer {
+	text-align: center;
+}
+
+.titleContainer > h4 {
+	font-size: 28px;
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
+
+.descContainer {
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
+
+.descContainer > h4 {
+	font-weight: 300;
+}
+
+.likeContainer {
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	display: grid;
+	place-content: center;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	background-color: red;
+	width: 100%;
+}
+
+/* 
+.buttonContainer {
+	width: 100%;
+}
+
+.likeButton {
+	padding: 0.5rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	font-size: 1rem;
+	cursor: pointer;
+} */
