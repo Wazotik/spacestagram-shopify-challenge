@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -12,6 +14,37 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
+main {
+	min-height: 90vh;
+	display: grid;
+	place-content: center;
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+
+nav {
+	padding: 1.5rem;
+	padding-left: 5rem;
+}
+
+.sortButtonsContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+
+.sortButtonsContainer > .sortByNewest {
+	cursor: pointer;
+}
+
+.logo {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 32px;
+}
+
 .toTopButton {
 	position: fixed;
 	right: 0;
@@ -19,13 +52,15 @@ body {
 	height: 100px;
 	width: 100px;
 	background-color: red;
-	margin-right: 2rem;
-	margin-bottom: 2rem;
+	margin-right: 4rem;
+	margin-bottom: 4rem;
 	color: white;
 	display: grid;
 	place-content: center;
-	border-radius: 30px;
+	border-radius: 30%;
+	z-index: 100;
 }
+
 
 
 .imgContainer {
