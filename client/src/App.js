@@ -2,6 +2,7 @@ import styles from "./App.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import ImageCard from "./components/image-card";
+import { BiUpArrowAlt } from "react-icons/bi";
 
 const App = () => {
 	// const [data, setData] = useState([]);
@@ -33,8 +34,7 @@ const App = () => {
 	return (
 		<div className={styles.main}>
 
-			{/* <button className={styles.toTopButton}>GO UP</button> */}
-			<a href="#top" className={styles.toTopButton}>GO UP</a>
+			<a href="#top" className={styles.toTopButton}><BiUpArrowAlt size={100} /></a>
 
 			<header>
 				<nav>

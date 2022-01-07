@@ -11,18 +11,19 @@
 	margin-bottom: 5rem;
 	border: 0;
 	border-radius: 15px;
-	cursor: pointer;
+	/* cursor: pointer; */
 	transition: transform 0.2s ease-in-out;
 }
 
-.card:hover {
+/* .card:hover {
 	transform: scale(1.01);
-}
+} */
 
 
 .card > img {
 	max-width: 600px;
 	max-height: 600px;
+	cursor: pointer;
 }
 
 
@@ -46,23 +47,14 @@
 	border-bottom-right-radius: 15px;
 	display: grid;
 	place-content: center;
-	color: white;
 	font-weight: bold;
 	letter-spacing: 3px;
 	text-transform: uppercase;
-	background-color: red;
 	width: 100%;
-}
-
-/* 
-.buttonContainer {
-	width: 100%;
-}
-
-.likeButton {
-	padding: 0.5rem;
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
-	font-size: 1rem;
+	padding: 1rem;
 	cursor: pointer;
-} */
+}
+
+.likeContainer:hover {
+	box-shadow: inset 600px 0 0 0 red;
+}

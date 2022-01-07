@@ -7,10 +7,9 @@ const ImageCard = ({ imgUrl, title, description, date }) => {
 	
 
 	return (
-		<div className={styles.card} onClick={() => {
-			setLiked(!liked);
-		}}>
-
+		<div
+			className={styles.card}
+		>
 			<div className={styles.titleContainer}>
 				<h4>{title}</h4>
 			</div>
@@ -19,24 +18,36 @@ const ImageCard = ({ imgUrl, title, description, date }) => {
 				<h4>{date}</h4>
 			</div>
 
-			<img src={imgUrl} alt="" />
+			<img onClick={() => {
+				setLiked(!liked);
+			}} src={imgUrl} alt="" />
 
 			<div className={styles.descContainer}>
 				<h4>{description}</h4>
 			</div>
 
-			<div className={styles.likeContainer} style={{
-				opacity: liked ? "1" : "0",
-				height: liked ? "50px" : "0px",
-				transition: liked ? "opacity 1s ease-in-out, height 0.5s ease-in-out" : "opacity 0.5s ease-in-out, height 0.5s ease-in-out",
-			}}>Liked</div>
+			<div
+				className={styles.likeContainer}
+				onClick={() => {
+					setLiked(!liked);
+				}}
+				style={{
+					// opacity: liked ? "1" : "0",
+					// height: liked ? "50px" : "0px",
+					// transition: liked ? "opacity 0.8s ease-in-out, height 0.4s ease-in-out" : "opacity 0.3s ease-in-out, height 0.4s ease-in-out",
+					// backgroundColor: liked ? "red" : "white",
+					boxShadow: liked ? "inset 600px 0 0 0 red" : "none",
+					color: liked ? "white" : "black",
+					borderTop: liked ? "1px solid red" : "1px solid #d3d3d3",
+					transition: "color 0.2s ease-out, border-top 0.3s ease, box-shadow 0.2s ease-out",
+				}}
+			>{liked ? "Liked" : "Like"}</div>
 
 			{/* <div className={styles.buttonContainer}>
 				<button className={styles.likeButton}>Like</button>
 			</div> */}
-
 		</div>
-	)
+	);
 }
 
 export default ImageCard;
