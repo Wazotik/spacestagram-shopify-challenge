@@ -12,6 +12,8 @@ const App = () => {
 	const [dataLoaded, setDataLoaded] = useState(false);
 	const [scrollPositionY, setScrollPositionY] = useState(0);
 
+	const [topButtonHovered, setTopButtonHovered] = useState(false);
+
 	const updateData = async () => {
 		try {
 			const res = await axios.get("/data");
@@ -35,8 +37,6 @@ const App = () => {
 	};
 
 	useScrollPosition(({ prevPos, currPos }) => {
-		console.log(currPos.x);
-		console.log(currPos.y);
 		setScrollPositionY(currPos.y);
 	});
 
@@ -121,9 +121,9 @@ const App = () => {
 			</main>
 
 			<a style={{
-				opacity: scrollPositionY < -800 ? "1" : "0",
-				transition: "opacity 0.3s ease-out",
-			}} href="#top" className={styles.toTopButton}><BiUpArrowAlt size={100} /></a>
+				opacity: scrollPositionY < -800 ? topButtonHovered ? "1" : "0.5" : "0",
+				transition: "opacity 0.2s ease",
+			}} onMouseEnter={() => setTopButtonHovered(true)} onMouseLeave={() => setTopButtonHovered(false)} href="#top" className={styles.toTopButton}><BiUpArrowAlt size={100} /></a>
 
 			<footer></footer>
 		</div>
