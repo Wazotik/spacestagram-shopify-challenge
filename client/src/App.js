@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import ImageCard from "./components/image-card";
 import { BiUpArrowAlt } from "react-icons/bi";
+import { GiMoonOrbit } from "react-icons/gi";
 import { SpinnerCircular } from "spinners-react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
@@ -11,8 +12,8 @@ const App = () => {
 	const [imageElements, setImageElements] = useState([]);
 	const [dataLoaded, setDataLoaded] = useState(false);
 	const [scrollPositionY, setScrollPositionY] = useState(0);
-
 	const [topButtonHovered, setTopButtonHovered] = useState(false);
+
 
 	const updateData = async () => {
 		try {
@@ -73,7 +74,6 @@ const App = () => {
 				if (aDate < bDate) {
 					return -1;
 				}
-				
 				else if (aDate > bDate) {
 					return 1;
 				}
@@ -107,13 +107,21 @@ const App = () => {
 
 			<header id="top">
 				<nav>
-					<div className={styles.logo}>Spacestagram</div>
+					<div className={styles.logo}><span className={styles.moonLogo}><GiMoonOrbit size={48}  /></span> Spacestagram</div>
+					<div className={styles.name} >Syed Wahaj Haider</div>
 				</nav>
 
-				<div className={styles.sortButtonsContainer}>
-					<button onClick={() => sortData("latest")} className={styles.sortByNewest}>Sort by latest</button>
-					<button onClick={() => sortData("oldest")} className={styles.sortByOldest}>Sort by oldest</button>
+				<div style={{
+					opacity: dataLoaded ? "1" : "0",
+				}} className={styles.sortButtonsContainer}>
+					<button style={{
+						opacity: dataLoaded ? "1" : "0",
+					}} onClick={() => sortData("latest")} className={styles.sortByLatest}>Sort by newest</button>
+					<button style={{
+						opacity: dataLoaded ? "1" : "0",
+					}} onClick={() => sortData("oldest")} className={styles.sortByOldest}>Sort by oldest</button>
 				</div>
+
 
 			</header>
 			
@@ -124,7 +132,7 @@ const App = () => {
 			<a style={{
 				opacity: scrollPositionY < -800 ? topButtonHovered ? "1" : "0.5" : "0",
 				transition: "opacity 0.2s ease",
-			}} onMouseEnter={() => setTopButtonHovered(true)} onMouseLeave={() => setTopButtonHovered(false)} href="#top" className={styles.toTopButton}><BiUpArrowAlt size={100} /></a>
+			}} onMouseEnter={() => setTopButtonHovered(true)} onMouseLeave={() => setTopButtonHovered(false)} href="#top" className={styles.toTopButton}><BiUpArrowAlt size={80} /></a>
 
 			<footer></footer>
 		</div>

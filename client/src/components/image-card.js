@@ -25,7 +25,7 @@ const ImageCard = ({ imgUrl, title, description, date }) => {
 			}} src={imgUrl} alt="" />
 
 			<div className={styles.descContainer}>
-				<h4>{description}</h4>
+				<p>{description}</p>
 			</div>
 
 			<div

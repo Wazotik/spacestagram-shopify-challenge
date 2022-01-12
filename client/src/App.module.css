@@ -1,49 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	font-family: "Be Vietnam Pro", sans-serif;
 	scroll-behavior: smooth;
 }
 
 body {
 	min-height: 100vh;
-	font-family: 'Be Vietnam Pro', sans-serif;
 	text-rendering: optimizeLegibility;
+	animation: fadeIn ease-out 1s;
+}
+
+body::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: white;
+}
+
+body::-webkit-scrollbar {
+	width: 12px;
+	background-color: white;
+}
+
+body::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: red;
 }
 
 main {
-	min-height: 90vh;
+	min-height: 55vh;
 	display: grid;
 	place-content: center;
 	padding-left: 3rem;
 	padding-right: 3rem;
 }
 
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 nav {
+	display: flex;
+	flex-wrap: wrap;
 	padding: 1.5rem;
-	padding-left: 5rem;
+	padding-left: 3rem;
+	border-bottom: 1px solid #d3d3d3;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+.logo {
+	font-family: "Montserrat", sans-serif;
+	font-weight: bold;
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	display: flex;
+	gap: 10px;
+	flex-grow: 1;
+}
+
+.name {
+	display: grid;
+	place-content: center;
+}
+
+.moonLogo {
+	display: grid;
+	place-content: center;
 }
 
 .sortButtonsContainer {
 	display: flex;
 	flex-direction: row;
+	/* gap: 200px; */
 	justify-content: space-around;
-	align-items: center;
-	margin-bottom: 2rem;
+	/* justify-content: center; */
+	padding: 4rem;
+	border-radius: 15px;
 }
 
-.sortButtonsContainer > .sortByNewest {
+::selection {
+	background-color: lightgray;
+}
+
+.sortByLatest,
+.sortByOldest {
+	min-width: 250px;
+	transition: all 0.2s ease;
 	cursor: pointer;
+	padding: 0.8rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: red;
+	color: white;
+	border-radius: 5px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
 }
 
-.logo {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: bold;
-	font-size: 32px;
+.sortByLatest:hover,
+.sortByOldest:hover {
+	transform: scale(1.01);
 }
+
+.sortByLatest:active,
+.sortByOldest:active {
+	opacity: 70%;
+	transition: none;
+}
+
 
 .toTopButton {
 	position: fixed;
@@ -61,14 +138,65 @@ nav {
 	z-index: 100;
 }
 
-
-
-
 .imgContainer {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: flex-start;
-	/* border: 3px solid black; */
+	animation: fadeIn ease-out 2s;
 }
+
+@media only screen and (max-width: 650px) {
+	.sortButtonsContainer {
+		padding: 2rem;
+	}
+	.sortByOldest, .sortByLatest {
+		min-width: 0;
+		width: 8rem;
+		height: 5rem;
+	}
+	.name {
+		margin-left: 0.1rem;
+	}
+	.toTopButton {
+		margin-bottom: 2rem;
+		margin-right: 2rem;
+	}
+}
+
+
+@media only screen and (max-width: 480px) {
+	.logo {
+		font-size: 2.2rem;
+	}
+	.toTopButton {
+		width: 80px;
+		height: 80px;
+		margin-bottom: 2rem;
+		margin-right: 2rem;
+	}
+	.sortByOldest, .sortByLatest {
+		min-width: 0;
+		width: 7rem;
+		height: 4rem;
+		font-size: 0.8rem;
+	}
+}
+
+
+@media only screen and (max-width: 420px) {
+	.logo {
+		font-size: 2rem;
+		display: grid;
+		place-content: center;
+	}
+	nav {
+		padding-right: 0;
+		padding-left: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
