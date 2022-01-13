@@ -13,11 +13,12 @@ body {
 	min-height: 100vh;
 	text-rendering: optimizeLegibility;
 	animation: fadeIn ease-out 1s;
+	background-color: whitesmoke;
 }
 
 body::-webkit-scrollbar-track {
 	border-radius: 10px;
-	background-color: white;
+	background-color: whitesmoke;
 }
 
 body::-webkit-scrollbar {
@@ -31,11 +32,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 main {
-	min-height: 55vh;
-	display: grid;
-	place-content: center;
-	padding-left: 3rem;
-	padding-right: 3rem;
+	display: flex;
+	justify-content: center;
+	padding-left: 5rem;
+	padding-right: 5rem;
 }
 
 @keyframes fadeIn {
@@ -57,7 +57,7 @@ nav {
 	border-bottom-right-radius: 15px;
 }
 
-.logo {
+.logoContainer {
 	font-family: "Montserrat", sans-serif;
 	font-weight: bold;
 	font-size: 2.5rem;
@@ -65,26 +65,104 @@ nav {
 	display: flex;
 	gap: 10px;
 	flex-grow: 1;
+	cursor: default;
+	align-items: center;
 }
 
-.name {
-	display: grid;
-	place-content: center;
+.logoContainer::selection {
+	background-color: transparent;
 }
+
 
 .moonLogo {
 	display: grid;
 	place-content: center;
+	font-size: 3rem;
 }
+
 
 .sortButtonsContainer {
 	display: flex;
 	flex-direction: row;
-	/* gap: 200px; */
 	justify-content: space-around;
-	/* justify-content: center; */
-	padding: 4rem;
+	padding-top: 3rem;
+	padding-bottom: 1rem;
 	border-radius: 15px;
+}
+
+
+.resultChooserContainer {
+	display: grid;
+	place-content: center;
+	margin-bottom: 5rem;
+}
+
+
+.resultChooserContainer > form {
+	display: grid;
+	place-content: center;
+	grid-template-rows: 1fr 1fr;
+	gap: 1rem;
+	max-width: 600px;
+}
+
+.labelAndInput {
+	display: grid;
+	grid-template-columns: 2fr 0.1fr;
+	place-content: center;
+	gap: 0.5rem;
+}
+
+.labelAndInput > input {
+	width: 100px;
+	font-size: 1.2rem;
+	padding: 0.5rem;
+	text-align: center;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.1) 0px 0px 0px 1px;
+}
+
+.labelAndInput > input::-webkit-inner-spin-button {
+	display: none;
+}
+
+
+.resultChooserContainer label {
+	font-size: 1.5rem;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	display: grid;
+	place-content: center;
+}
+
+.resultChooserContainer button {
+	min-width: 250px;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	padding: 0.8rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: 1.2rem;
+	border: none;
+	outline: none;
+	background-color: red;
+	color: white;
+	border-radius: 5px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.resultChooserContainer button:hover {
+	transform: scale(1.01);
+}
+
+.resultChooserContainer button:active {
+	opacity: 70%;
+	transition: none;
 }
 
 ::selection {
@@ -93,13 +171,13 @@ nav {
 
 .sortByLatest,
 .sortByOldest {
-	min-width: 250px;
+	max-width: 250px;
 	transition: all 0.2s ease;
 	cursor: pointer;
 	padding: 0.8rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
-	font-size: 18px;
+	font-size: 1.5rem;
 	border: none;
 	outline: none;
 	background-color: red;
@@ -147,29 +225,86 @@ nav {
 	animation: fadeIn ease-out 2s;
 }
 
-@media only screen and (max-width: 650px) {
+footer {
+	width: 100%;
+	display: grid;
+	place-content: center;
+	margin-top: 5rem;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+@media only screen and (max-width: 1300px) {
+	.sortButtonsContainer {
+		margin-bottom: 2rem;
+	}
+}
+
+@media only screen and (max-width: 600px) {
 	.sortButtonsContainer {
 		padding: 2rem;
+		margin-bottom: 1rem;
 	}
 	.sortByOldest, .sortByLatest {
 		min-width: 0;
 		width: 8rem;
 		height: 5rem;
-	}
-	.name {
-		margin-left: 0.1rem;
+		font-size: 1.1rem;
 	}
 	.toTopButton {
 		margin-bottom: 2rem;
 		margin-right: 2rem;
 	}
+
+	.resultChooserContainer {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+
+	.resultChooserContainer > form {
+		gap: 1rem;
+	}
+
+	.labelAndInput {
+		grid-template-columns: 2fr 0.5fr;
+	}
+
+	.labelAndInput label {
+		font-size: 1.2rem;
+	}
+
+	.labelAndInput input {
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.logoContainer {
+		font-size: 2.1rem;
+	}
+
+	.sortButtonsContainer {
+		margin-bottom: 0;
+	}
+
+	.resultChooserContainer {
+		margin-bottom: 4rem;
+	}
+
+	.resultChooserContainer > form {
+		gap: 0rem;
+	}
+
+	.labelAndInput label {
+		font-size: 1rem;
+	}
+	.labelAndInput input {
+		font-size: 1rem;
+	}
 }
 
 
 @media only screen and (max-width: 480px) {
-	.logo {
-		font-size: 2.2rem;
-	}
 	.toTopButton {
 		width: 80px;
 		height: 80px;
@@ -182,11 +317,27 @@ nav {
 		height: 4rem;
 		font-size: 0.8rem;
 	}
+	.resultChooserContainer {
+		margin-bottom: 2rem;
+	}
+	.labelAndInput {
+		grid-template-columns: 1fr 0.5fr;
+	}
+
+	.resultChooserContainer > form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.resultChooserContainer button {
+		font-size: 1rem;
+	}
 }
 
 
 @media only screen and (max-width: 420px) {
-	.logo {
+	.logoContainer {
 		font-size: 2rem;
 		display: grid;
 		place-content: center;
@@ -198,5 +349,14 @@ nav {
 		flex-direction: column;
 		align-items: center;
 	}
+
+	.resultChooserContainer > form {
+		gap: 0.5rem;
+	}
+
+	.labelAndInput label {
+		font-size: 1rem;
+	}
+	
 }
 

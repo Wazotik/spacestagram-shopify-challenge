@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from "./image-card-styles.module.css";
+import { Textfit } from "react-textfit";
+
 
 const ImageCard = ({ imgUrl, title, description, date }) => {
 	
@@ -7,9 +9,7 @@ const ImageCard = ({ imgUrl, title, description, date }) => {
 	
 
 	return (
-		<div
-			className={styles.card}
-		>
+		<div className={styles.card}>
 			<div className={styles.titleAndDate}>
 				<div className={styles.titleContainer}>
 					<h4>{title}</h4>
@@ -20,9 +20,13 @@ const ImageCard = ({ imgUrl, title, description, date }) => {
 				</div>
 			</div>
 
-			<img onClick={() => {
-				setLiked(!liked);
-			}} src={imgUrl} alt="" />
+			<img
+				onClick={() => {
+					setLiked(!liked);
+				}}
+				src={imgUrl}
+				alt=""
+			/>
 
 			<div className={styles.descContainer}>
 				<p>{description}</p>
@@ -37,9 +41,12 @@ const ImageCard = ({ imgUrl, title, description, date }) => {
 					boxShadow: liked ? "inset 600px 0 0 0 red" : "none",
 					color: liked ? "white" : "black",
 					borderTop: liked ? "1px solid red" : "1px solid #d3d3d3",
-					transition: "color 0.2s ease-out, border-top 0.3s ease, box-shadow 0.2s ease-out",
+					transition:
+						"color 0.2s ease-out, border-top 0.3s ease, box-shadow 0.2s ease-out",
 				}}
-			>{liked ? "Liked" : "Like"}</div>
+			>
+				{liked ? "Liked" : "Like"}
+			</div>
 		</div>
 	);
 }

@@ -15,9 +15,11 @@ const App = () => {
 	const [topButtonHovered, setTopButtonHovered] = useState(false);
 
 
-	const updateData = async () => {
+	const updateData = async (numOfResults) => {
 		try {
-			const res = await axios.get("/data");
+			const res = await axios.post("/data", {
+				numOfResults: numOfResults,
+			});
 			setData(res.data);
 			setDataLoaded(true);
 
@@ -96,7 +98,7 @@ const App = () => {
 
 	
 	useEffect(() => {
-		updateData();
+		updateData(30);
 	}, [])
 
 
@@ -107,8 +109,7 @@ const App = () => {
 
 			<header id="top">
 				<nav>
-					<div className={styles.logo}><span className={styles.moonLogo}><GiMoonOrbit size={48}  /></span> Spacestagram</div>
-					<div className={styles.name} >Syed Wahaj Haider</div>
+					<div className={styles.logoContainer}><span className={styles.moonLogo}>&#x1F680;</span> Spacestagram</div>
 				</nav>
 
 				<div style={{
@@ -116,17 +117,42 @@ const App = () => {
 				}} className={styles.sortButtonsContainer}>
 					<button style={{
 						opacity: dataLoaded ? "1" : "0",
+						cursor: dataLoaded ? "pointer" : "default",
 					}} onClick={() => sortData("latest")} className={styles.sortByLatest}>Sort by newest</button>
 					<button style={{
 						opacity: dataLoaded ? "1" : "0",
+						cursor: dataLoaded ? "pointer" : "default",
 					}} onClick={() => sortData("oldest")} className={styles.sortByOldest}>Sort by oldest</button>
+
+				</div>
+
+				<div style={{
+					opacity: dataLoaded ? "1" : "0",
+				}}  className={styles.resultChooserContainer}>
+					<form style={{
+					}} action="" onSubmit={(e) => {
+						e.preventDefault();
+						setDataLoaded(false);
+						updateData(e.target[0].value);
+					}}>
+						<div className={styles.labelAndInput}>
+							<label htmlFor="numOfResults">Number of results:</label>
+							<input type="number" name="numOfResults" id="numOfResults" required min={1} max={100} placeholder="1-100" />
+						</div>
+						<button style={{
+							opacity: dataLoaded ? "1" : "0",
+							cursor: dataLoaded ? "pointer" : "default",
+						}}>Show results</button>
+					</form>
 				</div>
 
 
 			</header>
 			
-			<main>
-				{dataLoaded ? <div className={styles.imgContainer}>{imageElements}</div> : <SpinnerCircular color="red" thickness={150} size={50} />}
+			<main style={{
+				minHeight: dataLoaded ? "30vh" : "55vh",
+			}}>
+				{dataLoaded ? <div className={styles.imgContainer}>{imageElements}</div> : <SpinnerCircular style={{marginTop: "5rem",}} color="red" thickness={150} size={50} />}
 			</main>
 
 			<a style={{
@@ -134,7 +160,12 @@ const App = () => {
 				transition: "opacity 0.2s ease",
 			}} onMouseEnter={() => setTopButtonHovered(true)} onMouseLeave={() => setTopButtonHovered(false)} href="#top" className={styles.toTopButton}><BiUpArrowAlt size={80} /></a>
 
-			<footer></footer>
+			<footer>
+				<p>Created by Syed Wahaj Haider</p>
+				<p>
+					Copyright &copy; 2022
+				</p>
+			</footer>
 		</div>
 	);
 };
