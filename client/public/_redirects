@@ -1,0 +1,2 @@
+/api/* https://cps530-weather-app-server.herokuapp.com/:splat 200
+/* /index.html 200
