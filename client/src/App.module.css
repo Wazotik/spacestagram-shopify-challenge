@@ -33,7 +33,9 @@ body::-webkit-scrollbar-thumb {
 
 main {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 	padding-left: 5rem;
 	padding-right: 5rem;
 }
