@@ -1,5 +1,5 @@
-# Spacestagram
-This project was made for the [Shopify Frontend Developer Intern Challenge](https://docs.google.com/document/d/13zXpyrC2yGxoLXKktxw2VJG2Jw8SdUfliLM-bYQLjqE/edit#)
+# :rocket: Spacestagram
+This project was made for the [Shopify Frontend Developer Intern Challenge](https://docs.google.com/document/d/13zXpyrC2yGxoLXKktxw2VJG2Jw8SdUfliLM-bYQLjqE/edit#)  
 View the project here: [link](https://spacestagram-wahaj.netlify.app/)
 ## Screenshots
 ### Main page - 1
