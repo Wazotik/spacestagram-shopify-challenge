@@ -152,7 +152,7 @@ const App = () => {
 			<main style={{
 				minHeight: dataLoaded ? "30vh" : "55vh",
 			}}>
-				{dataLoaded ? <div className={styles.imgContainer}>{imageElements}</div> : <Fragment><h3>Loading data...</h3>  <SpinnerCircular style={{marginTop: "5rem",}} color="red" thickness={150} size={50} /></Fragment> }
+				{dataLoaded ? <div className={styles.imgContainer}>{imageElements}</div> : <Fragment><h2>Loading data...</h2>  <SpinnerCircular style={{marginTop: "3rem",}} color="red" thickness={150} size={50} /></Fragment> }
 			</main>
 
 			<a style={{
