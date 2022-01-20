@@ -1,6 +1,6 @@
 import styles from "./App.module.css";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import ImageCard from "./components/image-card";
 import { BiUpArrowAlt } from "react-icons/bi";
 import { GiMoonOrbit } from "react-icons/gi";
@@ -152,7 +152,7 @@ const App = () => {
 			<main style={{
 				minHeight: dataLoaded ? "30vh" : "55vh",
 			}}>
-				{dataLoaded ? <div className={styles.imgContainer}>{imageElements}</div> : <SpinnerCircular style={{marginTop: "5rem",}} color="red" thickness={150} size={50} />}
+				{dataLoaded ? <div className={styles.imgContainer}>{imageElements}</div> : <Fragment><h3>Loading data...</h3>  <SpinnerCircular style={{marginTop: "5rem",}} color="red" thickness={150} size={50} /></Fragment> }
 			</main>
 
 			<a style={{
