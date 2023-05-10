@@ -17,7 +17,7 @@ const App = () => {
 
 	const updateData = async (numOfResults) => {
 		try {
-			const res = await axios.post("/data", {
+			const res = await axios.post("/api/data", {
 				numOfResults: numOfResults,
 			});
 			setData(res.data);
