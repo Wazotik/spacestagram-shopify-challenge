@@ -17,13 +17,13 @@ const App = () => {
 
 	const updateData = async (numOfResults) => {
 		try {
-			const res = await axios.post("/api/data", {
+			const res = await axios.post("/data", {
 				numOfResults: numOfResults,
 			});
 			setData(res.data);
 			setDataLoaded(true);
 
-			
+
 			let currData = res.data;
 			setImageElements(
 				currData.map((object) => {
