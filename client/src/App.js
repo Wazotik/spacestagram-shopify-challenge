@@ -23,6 +23,7 @@ const App = () => {
 			setData(res.data);
 			setDataLoaded(true);
 
+			
 			let currData = res.data;
 			setImageElements(
 				currData.map((object) => {
